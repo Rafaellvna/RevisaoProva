@@ -3,7 +3,7 @@ import apiFilmes from '@/services/apiFilmes'
 import React, { useEffect, useState } from 'react'
 import { Button, Card, Col, Container, Row } from 'react-bootstrap'
 
-function index() {
+const index = () => {
 
   const [filmes, setFilmes] = useState([])
 
