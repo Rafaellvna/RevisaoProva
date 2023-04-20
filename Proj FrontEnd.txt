@@ -34,7 +34,7 @@ rcfe/racfe
 //LOOP ARRAY
 {carros.map(item => (<p>{item}</p>))}
 
-//REACT HOOKS
+//REACT HOOKS(Opcional)
 const [filmes, setFilmes] = useState([])
 
     useEffect(()=>{
@@ -48,3 +48,14 @@ const [filmes, setFilmes] = useState([])
 //SITE API FILMES
 https://www.themoviedb.org/
 Google -> Public API github -> https://github.com/public-apis/public-apis
+
+//SERVER SIDE PROPS(BACKEND DO NEXT JS) -> Next JS(Site) -> Get Started -> getServerSideProps
+export async function getServerSideProps(context) {
+
+    const resultado = await apiFilmes.get('/movie/popular')
+    const filmes = resultado.data.results
+
+    return {
+        props: { filmes }, // will be passed to the page component as props
+    }
+}
